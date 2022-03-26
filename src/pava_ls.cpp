@@ -40,7 +40,8 @@ using namespace Rcpp;
 //' plot(y)
 //' points(y.hat, col = "red")
 //'
-//' @useDynLib cole
+//' @useDynLib coleReg
+//' @importFrom Rcpp evalCpp
 //' @export
 // [[Rcpp::export]]
 NumericVector pava_ls(NumericVector y) {

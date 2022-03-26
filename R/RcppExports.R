@@ -39,7 +39,8 @@
 #' plot(y)
 #' points(y.hat, col = "red")
 #'
-#' @useDynLib cole
+#' @useDynLib coleReg
+#' @importFrom Rcpp evalCpp
 #' @export
 pava_ls <- function(y) {
     .Call('_coleReg_pava_ls', PACKAGE = 'coleReg', y)
