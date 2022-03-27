@@ -2,7 +2,7 @@
 % Please edit documentation in R/wtf0.R
 \name{wtf0}
 \alias{wtf0}
-\title{Degree-Zero Weighted Trend Filter}
+\title{Monotone Degree-Zero Weighted Trend Filter}
 \usage{
 wtf0(x, s, bw = stats::bw.nrd0(x), w = "approx", knots = NULL, ...)
 }
@@ -30,8 +30,8 @@ wtf0(x, s, bw = stats::bw.nrd0(x), w = "approx", knots = NULL, ...)
 \description{
 Estimate the mean of a homoscedastic sequence of independent Gaussian
 observations under squared error loss. The optimal separable estimator is
-estimated by minimizing an unbiased estimate of the risk under a monotone
-non-decreasing constraint. Under the monotonicity constraint, the unbiased
+estimated by minimizing a biased estimate of the risk under a monotone
+non-decreasing constraint. Under the monotonicity constraint, the biased
 risk estimate looks like a degree-zero weighted trend filter. The pooled
 adjacent violators algorithm is used to fit the estimator.
 }

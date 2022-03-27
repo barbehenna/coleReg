@@ -1,9 +1,9 @@
-#' Degree-Zero Weighted Trend Filter
+#' Monotone Degree-Zero Weighted Trend Filter
 #'
 #' Estimate the mean of a homoscedastic sequence of independent Gaussian
 #' observations under squared error loss. The optimal separable estimator is
-#' estimated by minimizing an unbiased estimate of the risk under a monotone
-#' non-decreasing constraint. Under the monotonicity constraint, the unbiased
+#' estimated by minimizing a biased estimate of the risk under a monotone
+#' non-decreasing constraint. Under the monotonicity constraint, the biased
 #' risk estimate looks like a degree-zero weighted trend filter. The pooled
 #' adjacent violators algorithm is used to fit the estimator.
 #'
