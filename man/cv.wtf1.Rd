@@ -51,6 +51,6 @@ available to set for reproducible partitions.
 set.seed(1)
 theta = rnorm(250)
 x = theta + rnorm(250)
-res = wtf1(x, s = 1, tau = 1.2, knots = -2:2)
+res = cv.wtf1(x, s = 1, tau.options = 1:2, knots = -2:2)
 mean((theta - res$theta_hat)^2)
 }
