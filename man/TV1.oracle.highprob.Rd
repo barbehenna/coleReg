@@ -15,7 +15,10 @@ TV1.oracle.highprob(x, s)
 an upper bound on oracle TV(d')
 }
 \description{
-High-probability Bound on Oracle TV(d')
+A high-probability upper bound for the total variation of the derivative of
+the oracle decision rule, d*. This is calculated by first bounding TV(d*')
+using the range of unobserved means, then estimating the range by expanding
+the range of the observations.
 }
 \examples{
 theta = rnorm(250)

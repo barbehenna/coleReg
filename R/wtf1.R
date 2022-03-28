@@ -35,6 +35,11 @@ TV1.oracle.plugin <- function(x, s, ...) {
 
 #' High-probability Bound on Oracle TV(d')
 #'
+#' A high-probability upper bound for the total variation of the derivative of
+#' the oracle decision rule, d*. This is calculated by first bounding TV(d*')
+#' using the range of unobserved means, then estimating the range by expanding
+#' the range of the observations.
+#'
 #' @param x Gaussian sequence
 #' @param s standard deviation
 #'
