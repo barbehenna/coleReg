@@ -26,6 +26,8 @@ wtf0(x, s, bw = stats::bw.nrd0(x), w = "approx", knots = NULL, ...)
 \item{bw}{bandwidth used for weights or NULL if user specified weights}
 \item{w}{sequence of weights used}
 \item{knots}{location of knots}
+\item{risk.est}{estimated risk of the fitted estimator}
+\item{...}{additional parameters passed to stats::density()}
 }
 \description{
 Estimate the mean of a homoscedastic sequence of independent Gaussian

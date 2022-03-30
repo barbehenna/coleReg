@@ -33,6 +33,8 @@
 #' \item{bw}{bandwidth used for weights or NULL if user specified weights}
 #' \item{w}{sequence of weights used}
 #' \item{knots}{location of knots}
+#' \item{risk.est}{estimated risk of the fitted estimator}
+#' \item{...}{additional parameters passed to stats::density()}
 #' @export
 #' @importFrom stats density approx dnorm
 #'
@@ -114,6 +116,42 @@ wtf0 <- function(x, s, bw = stats::bw.nrd0(x), w = "approx", knots = NULL, ...) 
     bw = bw,
     w = w,
     knots = knots,
+    risk.est = mean((xs - theta_hat)^2) + 2*(s^2)*sum(w * diff(theta_hat)) - (s^2),
     ...
   )
+}
+
+
+
+
+#' Optimal Knots for wtf0
+#'
+#' Compute the optimal knot placement for `wtf0()` by minimize f_h(t) between
+#' each consecutive pair of observations. These knots are optimal for the risk
+#' estimate, but may not produce a better minimizer of the true risk.
+#'
+#' @param x Gaussian sequence
+#' @param bw scalar bandwidth for Gaussian kernel density estimate
+#'
+#' @return vector of optimal knots given x and bw (one element shorter than `x`)
+#' @export
+#' @importFrom stats optimize
+#'
+#' @examples
+#' set.seed(1)
+#' theta = rnorm(250)
+#' x = theta + rnorm(250)
+#' bw = 0.25
+#'
+#' # optimal knots
+#' wtf0(x, 1, bw = bw, knots = optimal.knots(x, bw))$risk.est
+#'
+#' # approximate knots
+#' wtf0(x, 1, bw = bw)$risk.est
+optimal.knots <- function(x, bw) {
+  x <- sort(x) # pre-sort xi
+
+  sapply(seq_len(length(x) - 1), function(i) {
+    stats::optimize(function(t) mean(dnorm(x - t, sd = bw)), interval = x[i:(i+1)])$minimum
+  })
 }
