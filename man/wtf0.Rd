@@ -4,7 +4,7 @@
 \alias{wtf0}
 \title{Monotone Degree-Zero Weighted Trend Filter}
 \usage{
-wtf0(x, s, bw = stats::bw.nrd0(x), w = "approx", knots = NULL, ...)
+wtf0(x, s, bw = s * s * length(x)^(-1/6), w = "approx", knots = NULL, ...)
 }
 \arguments{
 \item{x}{Gaussian sequence}
@@ -35,7 +35,8 @@ observations under squared error loss. The optimal separable estimator is
 estimated by minimizing a biased estimate of the risk under a monotone
 non-decreasing constraint. Under the monotonicity constraint, the biased
 risk estimate looks like a degree-zero weighted trend filter. The pooled
-adjacent violators algorithm is used to fit the estimator.
+adjacent violators algorithm is used to fit the estimator. The default value
+of `bw` is the optimal asymptotic rate (up to a constant).
 }
 \details{
 When `w` is "approx" the FFT transform is used to quickly generate weights
