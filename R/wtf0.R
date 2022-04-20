@@ -71,7 +71,7 @@
 #' ## details).
 #' res4 = wtf0(x, s = 1, w = "approx", n = 1048, bw = "SJ")
 #' mean((theta - res4$theta_hat)^2)
-wtf0 <- function(x, s, bw = s*s*length(x)^(-1/6), w = "approx", knots = NULL, ...) {
+wtf0 <- function(x, s, bw = s*length(x)^(-1/6), w = "approx", knots = NULL, ...) {
   # set-up
   n <- length(x)
   xs <- sort(x)

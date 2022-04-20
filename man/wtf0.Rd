@@ -4,7 +4,7 @@
 \alias{wtf0}
 \title{Monotone Degree-Zero Weighted Trend Filter}
 \usage{
-wtf0(x, s, bw = s * s * length(x)^(-1/6), w = "approx", knots = NULL, ...)
+wtf0(x, s, bw = s * length(x)^(-1/6), w = "approx", knots = NULL, ...)
 }
 \arguments{
 \item{x}{Gaussian sequence}
